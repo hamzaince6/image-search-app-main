@@ -12,6 +12,19 @@ const imageCaptionEl = document.getElementById("image-caption");
 
 let inputData = "";
 let page = 1;
+let isFirstPopupOpen = true;
+
+function showImageSelectionAlert() {
+  if (isFirstPopupOpen) {
+    Swal.fire({
+      icon: 'info',
+      title: 'Lütfen Görsel Seçmek İçin Çift Tıklayınız',
+      showConfirmButton: false,
+      timer: 1500
+    });
+    isFirstPopupOpen = false;
+  }
+}
 
 async function searchImages() {
   inputData = searchInputEl.value;
@@ -40,7 +53,7 @@ async function searchImages() {
     imageWrapper.appendChild(imageLink);
     searchResultsEl.appendChild(imageWrapper);
 
-    // Add double-click event listener to the image
+
     image.addEventListener("dblclick", () => {
       selectedImageEl.src = result.urls.regular;
       selectedImageEl.alt = result.alt_description;
@@ -62,6 +75,9 @@ async function searchImages() {
     showMoreButtonEl.style.display = "block";
   }
 }
+
+// Popup açıldığında görsel seçmek için çift tıklama uyarısı gösterme
+document.getElementById('popup').addEventListener('click', showImageSelectionAlert);
 
 formEl.addEventListener("submit", (event) => {
   event.preventDefault();
