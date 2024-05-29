@@ -54,22 +54,19 @@ async function searchImages() {
     downloadButton.textContent = "İndir";
     downloadButton.classList.add("buttonDownload"); // Sınıfı buttonDownload olarak ayarla
 
-    // Indirme butonuna tıklama olayını ekle
     downloadButton.addEventListener("click", () => {
-      // Indirme linkini oluştur
       const downloadLink = document.createElement("a");
-      downloadLink.href = result.urls.full; // Tam boyutlu resim URL'si
-      downloadLink.download = "image"; // İndirilen dosyanın adı
-      downloadLink.click(); // Indirme işlemi
+      downloadLink.href = result.urls.full;
+      downloadLink.download = "image";
+      downloadLink.target = "_blank";
+      downloadLink.click();
     });
 
-    // Image wrapper'a görsel, görsel bağlantısı ve indirme butonunu ekle
     imageWrapper.appendChild(image);
     imageWrapper.appendChild(imageLink);
     imageWrapper.appendChild(downloadButton);
     searchResultsEl.appendChild(imageWrapper);
 
-    // Çift tıklama olayını ekle
     image.addEventListener("dblclick", () => {
       selectedImageEl.src = result.urls.regular;
       selectedImageEl.alt = result.alt_description;
@@ -84,7 +81,6 @@ async function searchImages() {
       });
     });
   });
-
 
   page++;
 
