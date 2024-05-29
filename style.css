@@ -1,0 +1,224 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    background-image: url("img/stars-bg.png");
+    background-color: #f9f9f9;
+}
+
+h1{
+    font-size: 36px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+#search-input{
+    width: 60%;
+    max-width: 400px;
+    padding: 10px 20px;
+    border: none;
+    box-shadow: 0 0 5px rgba(0,0,0,.2);
+    border-radius: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+.search-results{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.search-result{
+    margin-bottom: 60px;
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,.2);
+    overflow: hidden;
+}
+
+
+.search-result img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform .35 ease-in-out;
+}
+
+.search-result:hover img{
+    transform: scale(1.05);
+}
+
+
+.search-result a{
+    padding: 10px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+    transition: background-color .3s ease-in-out;
+}
+
+.search-result:hover a{
+    background-color: rgba(0,0,0,.1);
+}
+
+
+#show-more-button{
+    background-color: #008cba;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    display: none;
+}
+
+
+#show-more-button:hover{
+    background-color: #0077b5;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.popup-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn {
+    border: none;
+    width: 142px;
+    height: 38px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: #1C1A1C;
+    cursor: pointer;
+    transition: all 450ms ease-in-out;
+    margin-left: 1rem;
+}
+
+.sparkle {
+    fill: #AAAAAA;
+    transition: all 800ms ease;
+}
+
+.text {
+    font-weight: 600;
+    color: #AAAAAA;
+    font-size: medium;
+}
+
+.btn:hover {
+    background: linear-gradient(0deg,#A47CF3,#683FEA);
+    box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+    inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+    0px 0px 180px 0px #9917FF;
+    transform: translateY(-2px);
+}
+
+.btn:hover .text {
+    color: white;
+}
+
+.btn:hover .sparkle {
+    fill: white;
+    transform: scale(1.2);
+}
+
+/* style.css */
+#selected-image-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.selected-image {
+    max-width: 300px; /* Görselin maksimum genişliği */
+    max-height: 300px; /* Görselin maksimum yüksekliği */
+    border-radius: 10px;
+    margin-top: 20px;
+    width: auto; /* Oranları koruyarak genişlik ayarı */
+    height: auto; /* Oranları koruyarak yükseklik ayarı */
+}
+
+#image-caption {
+    margin-top: 10px;
+    color: #555;
+    font-size: 1.2em;
+}
+
+@media screen and (max-width: 768px){
+    .search-result{
+        width: 45%;
+    }
+    .popup-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .search-result{
+        width: 100%;
+    }
+
+    form{
+        flex-direction: column;
+    }
+
+    #search-input{
+        margin-bottom: 20px;
+        width: 85%;
+    }
+}
